@@ -1,39 +1,39 @@
+-- ImGui premake5.lua file
+
 project "ImGui"
-	kind "StaticLib"
-	language "C++"
+    kind "StaticLib"
+    language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputDirectory .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputDirectory .. "/%{prj.name}")
 
-	files
-	{
-		"imconfig.h",
-		"imgui.h",
-		"imgui.cpp",
-		"imgui_draw.cpp",
-		"imgui_internal.h",
-		"imgui_widgets.cpp",
-		"imstb_rectpack.h",
-		"imstb_textedit.h",
-		"imstb_truetype.h",
-		"imgui_demo.cpp"
-	}
+    files
+    {
+        "imconfig.h",
+        "imgui.h",
+        "imgui.cpp",
+        "imgui_draw.cpp",
+        "imgui_internal.h",
+        "imgui_widgets.cpp",
+        "imstb_rectpack.h",
+        "imstb_textedit.h",
+        "imstb_truetype.h",
+        "imgui_demo.cpp"
+    }
 
-	filter "system:windows"
-		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
+    filter "system:windows"
+        systemversion "latest"
 
-	filter "system:linux"
-		pic "On"
-		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
+    filter "system:linux"
+        pic "On"
+        systemversion "latest"
 
-	filter "configurations:Debug"
-		runtime "Debug"
-		symbols "on"
+    filter "configurations:Debug"
+        runtime "Debug"
+        symbols "on"
 
-	filter "configurations:Release"
-		runtime "Release"
-		optimize "on"
+    filter "configurations:Release"
+        runtime "Release"
+        optimize "on"
